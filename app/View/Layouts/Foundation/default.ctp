@@ -3,7 +3,7 @@ $appDisc = "FuelWatch";
 $title_for_layout;
 ?>
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en-AU">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,16 @@ $title_for_layout;
         <?php
 		    echo $this->Html->meta('icon');
 		    echo $this->Html->css('foundation.min.css');
-        echo $this->Html->css('normalize.min.css');
-        echo $this->Html->css('style.css');
-        echo $this->Html->script('modernizr');
-
+            echo $this->Html->css('normalize.min.css');
+            echo $this->Html->css('style.css');
+            echo $this->Html->script('modernizr');
+            echo $this->Html->script('jquery.min');
+            echo $this->Html->script('foundation.min');
 		    echo $this->fetch('meta');
 		    echo $this->fetch('css');
 		    echo $this->fetch('script');
-				
 	    ?>
+        <script> $(document).foundation();</script>
 	</head>
 	<body>
         <div class="contain-to-grid sticky">
@@ -55,12 +56,7 @@ array('controller' => 'fuel', 'action' => 'index')); ?>
 
 			<?php echo $this->fetch('content'); ?>
         <?php
-            echo $this->Html->script('jquery.min');
-            echo $this->Html->script('foundation.min');
+            
         ?>
-        <script>
-        $(document).foundation();
-        </script>
-
 	</body>
 </html>

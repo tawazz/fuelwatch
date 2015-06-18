@@ -2,6 +2,7 @@
     echo $this->element('forms');
     echo $this->fetch('search_form');
 ?>
+
 <div class="row text-center">
   <div class="columns large-12">
     <?php echo "<h1> Cheapest <span stlye='text-transform:capitalize;'>".productString($data[0]->product)."</span> Prices near you.</h1>"; ?>
@@ -20,7 +21,7 @@
           echo "<tr>";
           echo "<td>".$reg->name."</td>";
           echo "<td>".$reg->brand."</td>";
-          echo "<td>".$reg->address."</td>";
+          echo "<td><a href=\"#\" data-show-map=\"mapsModal\" data-lat=\"{$reg->latitude}\" data-long=\"{$reg->longitude}\" data-name=\"{$reg->name}\" data-price=\"{$reg->price}\">".$reg->address."</a></td>";
           echo "<td>$".number_format(floatval($reg->price),2,".",",")."</td>";
         }
           echo "</tr>";
@@ -29,6 +30,29 @@
     </table>
   </div>
 </div>
+<div id="mapsModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle"></h2>
+  <div id="modalFrame" style="height:300px;"></div>
+  
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD7IzO2pzUMq3j1oYApElyS6lM-NbP05To"></script>
+<script type="text/javascript">
+var lat = -34.397;
+var long = 150.644;
+var content= "";
+
+
+$("a[data-show-map]").on("click", function () {
+
+    content = [$(this).attr("data-name"),"price: $"+$(this).attr("data-price")].join('<br>');
+    lat = $(this).attr("data-lat");
+    long = $(this).attr("data-long");
+$("#modalTitle").html( "Directions to "+ $(this).attr("data-name"));
+$("#modalFrame").html("<iframe width=\"100%\" height=\"300\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://dev.virtualearth.net/embeddedMap/v1/ajax/Road?zoomLevel=14&center="+$(this).attr("data-lat")+"_"+$(this).attr("data-long")+"&pushpins="+$(this).attr("data-lat")+"_"+$(this).attr("data-long")+"&culture=en-CA\"/>");
+$('#mapsModal').foundation('reveal', 'open');
+});
+</script>
 <?php
 function productString($id){
     $name ="";
