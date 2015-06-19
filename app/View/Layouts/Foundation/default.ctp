@@ -38,15 +38,14 @@ array('controller' => 'home', 'action' => 'index')); ?></h1>
               <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
-                  <li class="active"><?php echo $this->Html->link('About',
+                <li><?php echo $this->Html->link('Home',
+array('controller' => 'Home', 'action' => 'index')); ?></li>
+                  <li><?php echo $this->Html->link('Locations',
+array('controller' => 'Home', 'action' => 'locations')); ?></li>
+<li><?php echo $this->Html->link('About',
 array('controller' => 'Home', 'action' => 'about')); ?></li>
-                  <li class="has-dropdown">
-                    <?php echo $this->Html->link('Fuel',
-array('controller' => 'fuel', 'action' => 'index')); ?>
-                    <ul class="dropdown">
-                      <li><a href="#">First link in dropdown</a></li>
-                      <li class="active"><a href="#">Active link in dropdown</a></li>
-                    </ul>
+                  <li>
+                   
                   </li>
                 </ul>
               </section>

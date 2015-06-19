@@ -16,6 +16,13 @@ class HomeController extends AppController{
         $this->set('servos',$Regions);
     }
 
+    public function about(){
+        
+    }
+    public function locations(){
+        
+    }
+
 
     public function display() {
 		$path = func_get_args();
