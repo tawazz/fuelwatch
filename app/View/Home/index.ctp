@@ -7,7 +7,7 @@
 </div>
 </section>
 <?php echo $this->fetch('search_form'); ?>
-<section class="prices">
+<section class="prices today">
     <div class="row">
         <div class="columns large-12">
         <h2 class="text-center page-header">Metro ULP Prices for today</h2>
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-</section>
+
 <?php
     $today = new DateTime(null, new DateTimeZone('Australia/Perth'));
     $tomorrow = new DateTime(null, new DateTimeZone('Australia/Perth'));
@@ -57,13 +57,13 @@
         $availability = false;
         for($i=3; $i<6;$i++){
             for($j=0;$j<4;$j++){
+                $servos[$i][$j]= new stdClass();
                 $servos[$i][$j]->name = "Not Available";
                 $servos[$i][$j]->price = "0.00";
             }
         }
     }
 ?>
-<section class="prices">
     <div class="row">
         <div class="columns large-12">
         <h2 class="text-center page-header">Metro ULP Prices for tomorrow</h2>

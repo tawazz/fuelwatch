@@ -9,8 +9,7 @@ body,h1,p,a,.top-bar-section ul li>a{
     height: 400px;
     background-image: url("../img/traffic.jpg");
     background-size: cover;
-    background-position:center center;
-    background-attachment: fixed;
+    background-position:top center;
     background-repeat: no-repeat;
     overflow: hidden;
     width: 100%;
@@ -36,6 +35,13 @@ body,h1,p,a,.top-bar-section ul li>a{
     text-align: center;
     height: 400px auto;
     overflow: hidden;
+    width: 100%;
+    background:url("../img/bridge.jpg") ;
+    background-size:cover; 
+    background-position:center center;
+}
+.prices h2,h3{
+    color: #f5f5f5;
 }
 .circle-icon{
     width: 200px;
