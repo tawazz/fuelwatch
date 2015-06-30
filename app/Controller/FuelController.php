@@ -37,9 +37,12 @@
             $this->render('view');
         }
 
-        public function region($region,$product=NULL){
+        public function region($region,$product=NULL,$day=NULL){
              if(!isset($product)){
                 $product = 1;
+            }
+            if(!isset($day)){
+               $day="today"; 
             }
             $products = array('ulp'=>1,'pulp'=>2,'diesel'=>4,'lpg'=>5,'98ron'=>6,'B20'=>7,"e10"=>8,"p100"=>9,"e85"=>10);
             $regions = array('northofriver'=>25,'southofriver'=>26,'perthhills'=>27);
@@ -49,10 +52,10 @@
             $S= new Region();
             if (isset($regions[$region])) {
                 if(isset ($products[$product])){
-                    $xml = Fuel::fetchXml(array("Product"=>$products[$product],"Region"=>$regions[$region],"Day"=>"today"));
+                    $xml = Fuel::fetchXml(array("Product"=>$products[$product],"Region"=>$regions[$region],"Day"=>$day));
                     $data = $S->fetchServos($xml,$products[$product]);
                 }else{
-                    $xml = Fuel::fetchXml(array("Product"=>$product,"Region"=>$regions[$region],"Day"=>"today"));
+                    $xml = Fuel::fetchXml(array("Product"=>$product,"Region"=>$regions[$region],"Day"=>$day));
                     $data = $S->fetchServos($xml,1);
                 }
             }

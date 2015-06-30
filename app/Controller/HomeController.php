@@ -12,6 +12,9 @@ class HomeController extends AppController{
         $Regions[] = $NOR->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"25","Day"=>"today")));
         $Regions[] = $SOR->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"26","Day"=>"today")));
         $Regions[] = $Hills->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"27","Day"=>"today")));
+        $Regions[] = $NOR->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"25","Day"=>"tomorrow ")));
+        $Regions[] = $SOR->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"26","Day"=>"tomorrow ")));
+        $Regions[] = $Hills->fetchServos(Fuel::fetchXml(array("product"=>1,"Region"=>"27","Day"=>"tomorrow ")));
 
         $this->set('servos',$Regions);
     }

@@ -36,7 +36,6 @@
   
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD7IzO2pzUMq3j1oYApElyS6lM-NbP05To"></script>
 <script type="text/javascript">
 var lat = -34.397;
 var long = 150.644;
